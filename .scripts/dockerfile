@@ -1,0 +1,32 @@
+# ──────── deps ────────
+FROM node:22 AS deps
+WORKDIR /app/code
+COPY code/base/package.json code/base/yarn.lock ./
+RUN yarn config set registry https://registry.npmmirror.com
+RUN yarn install --frozen-lockfile
+
+# ──────── dev ────────
+FROM node:22 AS dev
+WORKDIR /app/code
+COPY --from=deps /app/code/node_modules ./node_modules
+COPY code/base/ ./
+EXPOSE 5173
+CMD ["yarn", "dev", "--host", "0.0.0.0"]
+
+# ──────── build ────────
+FROM node:22 AS build
+WORKDIR /app/code
+COPY --from=deps /app/code/node_modules ./node_modules
+COPY .git/ ./
+COPY code/base/ ./
+RUN yarn build
+
+# ──────── prod ────────
+FROM nginx:1.25-alpine AS prod
+LABEL maintainer="olianna.luxine@foxmail.com"
+WORKDIR /usr/share/nginx/html
+RUN rm -rf ./*
+COPY --from=build /app/code/dist/ ./
+COPY nginx/default.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
+ENTRYPOINT ["nginx", "-g", "daemon off;"]

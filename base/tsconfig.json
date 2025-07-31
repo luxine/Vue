@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "jsx": "preserve",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "noEmit": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": [
+      "node",
+      "vite/client",
+      "element-plus/global",
+      "electron"
+    ],
+    "incremental": true,
+    "tsBuildInfoFile": "./node_modules/.cache/tsconfig.tsbuildinfo"
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/**/*.jsx",
+    "src/**/*.js",
+    "types/**/*.d.ts",
+    "eslint.config.js",
+    "vite.config.ts",
+    "auto-imports.d.ts",
+    "components.d.ts",
+    "electron/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

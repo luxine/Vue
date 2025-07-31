@@ -1,0 +1,1 @@
+此文件夹下放置 typescript --> assemblyscript 拓展代码

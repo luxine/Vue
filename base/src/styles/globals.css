@@ -1,0 +1,8 @@
+@import 'tailwindcss';
+@import 'preline/variants.css';
+@plugin "@tailwindcss/forms";
+
+#nprogress .bar {
+  height: 3px !important;
+  background: #f8e216 !important;
+}

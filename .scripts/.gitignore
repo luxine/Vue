@@ -1,0 +1,49 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime data
+node_modules
+dist
+dist-ssr
+*.local
+electron-dist
+dist-electron
+release
+
+# core build output
+core/encryptionSign/target
+core/base/target
+core/RustBase/target
+core/RustBase/**/target/
+core/TS2AS/baseAssembly/assembly/tests
+core/TS2AS/baseAssembly/tests
+core/TS2AS/baseAssembly/assembly/build
+core/TS2AS/baseAssembly/build
+
+
+# code/base
+code/base/.vscode/
+code/base/android
+
+# code/clients
+code/clients/android
+code/clients/windows
+
+
+# other
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.eslintcache
+code/base/stats.html

@@ -1,0 +1,35 @@
+import 'preline/dist/preline.js';
+import '@/styles/globals.css';
+import { createApp } from 'vue';
+import App from './App.vue';
+import router from '@/router';
+import { createPinia } from 'pinia';
+import DIContainer from '@/basis/DI/DIContainer';
+import LocalStorageService from '@/adapters/store/LocalStorageService';
+import { createRequstService } from '@/adapters/requests/ApiRequestService';
+import messagePlugin from './plugins/message';
+import { initHook } from './plugins/piniahook';
+import { setupI18n } from './plugins/i18n';
+import { initLoading } from '@/plugins/loading';
+import WatermarkDirective from '@/directives/matermark';
+DIContainer.injectStoreModel(LocalStorageService);
+const apiserve = await createRequstService();
+DIContainer.injectRequestsModel(apiserve);
+const app = createApp(App);
+if (Utils.isDev()) app.config.performance = true;
+const pinia = createPinia();
+app.use(pinia);
+initLoading(app);
+setupI18n(app);
+pinia.use(initHook);
+app.use(router);
+app.use(messagePlugin);
+app.directive('watermark', WatermarkDirective);
+const meta = document.createElement('meta');
+meta.name = 'naive-ui-style';
+document.head.appendChild(meta);
+app.mount('#app');
+
+setTimeout(() => {
+  window.HSStaticMethods?.autoInit();
+}, 100);
