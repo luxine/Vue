@@ -32,7 +32,7 @@ router.beforeEach(async (to, from, next) => {
 router.afterEach((to, from, failure) => {
   NProgress.done();
   if (!failure) {
-    setTimeout(() => window.HSStaticMethods.autoInit(), 100);
+    setTimeout(() => window.HSStaticMethods?.autoInit(), 100);
   }
 });
 router.onError(() => {
