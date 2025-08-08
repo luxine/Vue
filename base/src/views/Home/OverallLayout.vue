@@ -7,7 +7,6 @@
         </RouterView>
       </transition>
     </main>
-    <DialogPayment modalid="payment-dialog"></DialogPayment>
   </div>
 </template>
 

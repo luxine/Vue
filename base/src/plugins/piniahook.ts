@@ -1,9 +1,5 @@
 import { PiniaPluginContext } from 'pinia';
-import { once } from 'lodash-es';
-import { initStoresHook } from '@/hooks/initpiniahook';
-const runInitOnce = once(async () => {
-  await initStoresHook();
-});
+
 export const initHook = async (ctx: PiniaPluginContext) => {
   const { store } = ctx;
   if (typeof store.__init__ === 'function') await store.__init__();
@@ -11,5 +7,4 @@ export const initHook = async (ctx: PiniaPluginContext) => {
     store.__initState__ = true;
   }
   return;
-  runInitOnce();
 };
