@@ -19,6 +19,8 @@
   },
   "dependencies": {
     "@msgpack/msgpack": "^3.1.2",
+    "@types/lodash-es": "^4.17.12",
+    "@vueuse/core": "^13.6.0",
     "element-plus": "^2.9.10",
     "env": "^0.0.2",
     "ky": "^1.8.1",
