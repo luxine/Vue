@@ -78,7 +78,13 @@
 </template>
 
 <script setup lang="ts">
-// 展示页默认无需脚本；如需读取版本号，可在此 inject 运行时变量
+import { useDemoStore } from "@/stores/demoStore";
+const demoStore = useDemoStore();
+
+onMounted(async () => {
+  await demoStore.__waitInit__();
+  console.log( 'demoStore init done');
+});
 </script>
 
 <style scoped>

@@ -7,7 +7,7 @@ import DIContainer from '@/basis/DI/DIContainer';
 import LocalStorageService from '@/adapters/store/LocalStorageService';
 import { createRequstService } from '@/adapters/requests/ApiRequestService';
 import messagePlugin from './plugins/message';
-import { initHook } from './plugins/piniahook';
+import { initHook } from './plugins/piniaHook';
 import { setupI18n } from './plugins/i18n';
 import { initLoading } from '@/plugins/loading';
 import WatermarkDirective from '@/directives/matermark';

@@ -185,7 +185,8 @@
                   插件系统
                 </h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-                  <div class="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-lg p-3 sm:p-4 border border-yellow-200">
+                  <div
+                    class="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-lg p-3 sm:p-4 border border-yellow-200">
                     <h3 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">国际化 (i18n)</h3>
                     <p class="text-xs sm:text-sm text-gray-700">多语言支持，动态切换</p>
                   </div>
@@ -197,15 +198,18 @@
                     <h3 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">加载状态</h3>
                     <p class="text-xs sm:text-sm text-gray-700">全局加载状态管理</p>
                   </div>
-                  <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-3 sm:p-4 border border-green-200">
+                  <div
+                    class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-3 sm:p-4 border border-green-200">
                     <h3 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">通知系统</h3>
                     <p class="text-xs sm:text-sm text-gray-700">桌面通知集成</p>
                   </div>
-                  <div class="bg-gradient-to-br from-purple-50 to-violet-50 rounded-lg p-3 sm:p-4 border border-purple-200">
+                  <div
+                    class="bg-gradient-to-br from-purple-50 to-violet-50 rounded-lg p-3 sm:p-4 border border-purple-200">
                     <h3 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">Pinia Hooks</h3>
                     <p class="text-xs sm:text-sm text-gray-700">状态管理生命周期</p>
                   </div>
-                  <div class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-lg p-3 sm:p-4 border border-indigo-200">
+                  <div
+                    class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-lg p-3 sm:p-4 border border-indigo-200">
                     <h3 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">用户活动</h3>
                     <p class="text-xs sm:text-sm text-gray-700">用户行为追踪</p>
                   </div>
@@ -414,7 +418,7 @@
                   </svg>
                   API使用指南
                 </h2>
-                
+
                 <!-- 依赖注入容器 -->
                 <div class="mb-8">
                   <h3 class="text-xl font-semibold text-gray-900 mb-4">依赖注入容器 (DIContainer)</h3>
@@ -492,7 +496,7 @@
                         <h4 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">监听消息</h4>
                         <div class="text-xs sm:text-sm text-gray-600 font-mono overflow-x-auto">
                           <div class="break-all">ws.on('message', (data) => {</div>
-                          <div class="break-all">  console.log(data);</div>
+                          <div class="break-all"> console.log(data);</div>
                           <div class="break-all">});</div>
                         </div>
                       </div>
@@ -501,7 +505,7 @@
                       <div class="bg-white rounded border p-3">
                         <h4 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">发送消息</h4>
                         <div class="text-xs sm:text-sm text-gray-600 font-mono overflow-x-auto">
-                          <div class="break-all">ws.send('chat', 'user', {  message: 'Hello!'});</div>
+                          <div class="break-all">ws.send('chat', 'user', { message: 'Hello!'});</div>
                         </div>
                       </div>
                     </div>
@@ -545,13 +549,11 @@
               <section id="development" class="mb-12 anchor-section">
                 <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                   <svg class="h-6 w-6 text-indigo-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      clip-rule="evenodd" />
+                    <path fill-rule="evenodd" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" clip-rule="evenodd" />
                   </svg>
                   开发指南
                 </h2>
-                
+
                 <!-- 环境要求 -->
                 <div class="mb-8">
                   <h3 class="text-xl font-semibold text-gray-900 mb-4">环境要求</h3>
@@ -615,17 +617,24 @@
                       <div class="text-indigo-600">// 定义Store</div>
                       <div class="break-all">export const useUserStore = defineStore('user', () => {</div>
                       <div class="ml-4 break-all">const user = ref&lt;User | null&gt;(null);</div>
-                      <div class="ml-4 break-all">const __initState__ = ref(false);</div>
-                      <div class="ml-4"></div>
                       <div class="ml-4 text-indigo-600">// 初始化Hook</div>
                       <div class="ml-4 break-all">const __init__ = async () => {</div>
                       <div class="ml-8 break-all">const userData = await loadUserData();</div>
                       <div class="ml-8 break-all">user.value = userData;</div>
                       <div class="ml-4">};</div>
+                      <div class="ml-4 text-indigo-600">拓展用法( 获取__init__状态(固定写法) )</div>
+                      <div class="ml-4 break-all">const __initState__ = ref(false);</div>
+                      <div class="ml-4 break-all">const __waitInit__ = async () => {</div>
+                      <div class="ml-4 break-all">return await __watchInitState__(__initState__)</div>
+                      <div class="ml-4 break-all">};</div>
                       <div class="ml-4"></div>
-                      <div class="ml-4 break-all">return { user, __init__, __initState__ };</div>
+                      <div class="ml-4"></div>
+                      <br/>
+                      <div class="ml-4 break-all">return { user, __init__, __initState__, __waitInit__ };</div>
                       <div>});</div>
                     </div>
+                    <br/>
+                    <p class="text-gray-700 mb-3">组件中使用<p class="ml-4 text-indigo-600">await demoStore.__waitInit__();</p>可等待 __init__ 执行完成再操作</p>
                   </div>
                 </div>
               </section>
@@ -640,13 +649,14 @@
                   </svg>
                   更新日志
                 </h2>
-                
+
                 <!-- 最新版本 -->
                 <div class="mb-8">
                   <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-6 border border-green-200">
                     <div class="flex items-center justify-between mb-4">
                       <h3 class="text-xl font-semibold text-gray-900">v1.0.0 - 2025-08-11</h3>
-                      <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">最新版本</span>
+                      <span
+                        class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">最新版本</span>
                     </div>
                     <div class="space-y-3">
                       <div>
@@ -702,7 +712,7 @@
                   </svg>
                   贡献指南
                 </h2>
-                
+
                 <!-- 贡献流程 -->
                 <div class="mb-8">
                   <h3 class="text-xl font-semibold text-gray-900 mb-4">贡献流程</h3>
@@ -723,7 +733,9 @@
                         </div>
                         <div>
                           <h4 class="font-semibold text-gray-900">创建分支</h4>
-                          <p class="text-sm text-gray-600">创建特性分支：<code class="bg-white px-2 py-1 rounded text-sm">git checkout -b feature/AmazingFeature</code></p>
+                          <p class="text-sm text-gray-600">创建特性分支：<code
+                              class="bg-white px-2 py-1 rounded text-sm">git checkout -b feature/AmazingFeature</code>
+                          </p>
                         </div>
                       </div>
                       <div class="flex items-start space-x-4">
@@ -732,7 +744,9 @@
                         </div>
                         <div>
                           <h4 class="font-semibold text-gray-900">提交更改</h4>
-                          <p class="text-sm text-gray-600">提交你的更改：<code class="bg-white px-2 py-1 rounded text-sm">git commit -m 'Add some AmazingFeature'</code></p>
+                          <p class="text-sm text-gray-600">提交你的更改：<code
+                              class="bg-white px-2 py-1 rounded text-sm">git commit -m 'Add some AmazingFeature'</code>
+                          </p>
                         </div>
                       </div>
                       <div class="flex items-start space-x-4">
@@ -741,7 +755,9 @@
                         </div>
                         <div>
                           <h4 class="font-semibold text-gray-900">推送分支</h4>
-                          <p class="text-sm text-gray-600">推送到分支：<code class="bg-white px-2 py-1 rounded text-sm">git push origin feature/AmazingFeature</code></p>
+                          <p class="text-sm text-gray-600">推送到分支：<code
+                              class="bg-white px-2 py-1 rounded text-sm">git push origin feature/AmazingFeature</code>
+                          </p>
                         </div>
                       </div>
                       <div class="flex items-start space-x-4">
@@ -883,23 +899,23 @@ const scrollToSection = (id: string) => {
     position: relative;
     top: 0;
   }
-  
+
   /* 小屏幕下的文本调整 */
   .text-xs {
     font-size: 0.75rem;
     line-height: 1rem;
   }
-  
+
   /* 小屏幕下的间距调整 */
-  .space-y-3 > * + * {
+  .space-y-3>*+* {
     margin-top: 0.75rem;
   }
-  
+
   /* 小屏幕下的代码块调整 */
   .font-mono {
     font-size: 0.75rem;
   }
-  
+
   /* 小屏幕下的网格调整 */
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -911,11 +927,11 @@ const scrollToSection = (id: string) => {
   .p-3 {
     padding: 0.5rem;
   }
-  
+
   .text-xs {
     font-size: 0.7rem;
   }
-  
+
   .font-mono {
     font-size: 0.7rem;
   }
