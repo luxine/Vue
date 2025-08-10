@@ -61,7 +61,7 @@
           class="rounded-full bg-indigo-500 px-6 py-3 text-center shadow transition hover:bg-indigo-600 hover:shadow-lg active:translate-y-px"
           aria-label="查看开发文档"
         >
-          开始开发
+          开始
         </RouterLink>
         <a
           href="https://github.com/luxine"

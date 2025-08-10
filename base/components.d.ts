@@ -9,6 +9,9 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Docs: typeof import('./src/views/Docs/Docs.vue')['default']
+    ElAnchor: typeof import('element-plus/es')['ElAnchor']
+    ElAnchorLink: typeof import('element-plus/es')['ElAnchorLink']
+    ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
     HomeLoading: typeof import('./src/components/HomeLoading.vue')['default']
     OverallLayout: typeof import('./src/views/Home/OverallLayout.vue')['default']
     Root: typeof import('./src/views/Root/Root.vue')['default']
