@@ -8,4 +8,6 @@ npm run build
 npx cap add android
 npx cap copy android
 cd clients\android
+
+<!-- 构建 -->
 .\gradlew assembleDebug
