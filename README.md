@@ -93,12 +93,13 @@ pnpm build/android
 
 ```typescript
 // 注入服务
-DIContainer.injectRequestsModel(new ApiRequestService());
-DIContainer.injectStoreModel(new LocalStorageService());
+DIContainer.injectStoreModel(LocalStorageService);
+const apiserve = await createRequstService();
+DIContainer.injectRequestsModel(apiserve);
 
 // 获取服务实例
-const requestService = DIContainer.getRequestInstance();
-const storeService = DIContainer.getStoreInstance();
+const apiResult = await RequestService.get('/api/version');
+const storeResult = await StoreService.get('version');
 ```
 
 ### 网络请求架构
