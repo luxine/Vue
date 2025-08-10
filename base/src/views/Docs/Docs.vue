@@ -123,15 +123,15 @@
                 <!-- 依赖注入容器 -->
                 <div class="mb-8">
                   <h3 class="text-xl font-semibold text-gray-900 mb-4">依赖注入容器 (DIContainer)</h3>
-                  <div class="bg-gray-50 rounded-lg p-4 mb-4">
+                  <div class="bg-gray-50 rounded-lg p-3 sm:p-4 mb-4">
                     <p class="text-gray-700 mb-3">统一的服务管理，确保全局单例模式：</p>
-                    <div class="bg-white rounded border p-4 font-mono text-sm">
+                    <div class="bg-white rounded border p-3 sm:p-4 font-mono text-xs sm:text-sm overflow-x-auto">
                       <div class="text-indigo-600">// 注入服务</div>
-                      <div>DIContainer.injectStoreModel(LocalStorageService);</div>
-                      <div>DIContainer.injectRequestsModel(apiService);</div>
+                      <div class="break-all">DIContainer.injectStoreModel(LocalStorageService);</div>
+                      <div class="break-all">DIContainer.injectRequestsModel(apiService);</div>
                       <div class="text-indigo-600 mt-2">// 使用服务</div>
-                      <div>const apiResult = await RequestService.get('/api/version');</div>
-                      <div>const storeResult = await StoreService.get('version');</div>
+                      <div class="break-all">const apiResult = await RequestService.get('/api/version');</div>
+                      <div class="break-all">const storeResult = await StoreService.get('version');</div>
                     </div>
                   </div>
                 </div>
@@ -139,18 +139,18 @@
                 <!-- 网络请求层 -->
                 <div class="mb-8">
                   <h3 class="text-xl font-semibold text-gray-900 mb-4">网络请求抽象层</h3>
-                  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="bg-blue-50 rounded-lg p-4 border border-blue-200">
-                      <h4 class="font-semibold text-blue-900 mb-2">BaseRequestService</h4>
-                      <p class="text-sm text-blue-700">底层 HTTP 请求实现</p>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+                    <div class="bg-blue-50 rounded-lg p-3 sm:p-4 border border-blue-200">
+                      <h4 class="font-semibold text-blue-900 mb-2 text-sm sm:text-base">BaseRequestService</h4>
+                      <p class="text-xs sm:text-sm text-blue-700">底层 HTTP 请求实现</p>
                     </div>
-                    <div class="bg-green-50 rounded-lg p-4 border border-green-200">
-                      <h4 class="font-semibold text-green-900 mb-2">BusinessRequestService</h4>
-                      <p class="text-sm text-green-700">业务逻辑处理层</p>
+                    <div class="bg-green-50 rounded-lg p-3 sm:p-4 border border-green-200">
+                      <h4 class="font-semibold text-green-900 mb-2 text-sm sm:text-base">BusinessRequestService</h4>
+                      <p class="text-xs sm:text-sm text-green-700">业务逻辑处理层</p>
                     </div>
-                    <div class="bg-purple-50 rounded-lg p-4 border border-purple-200">
-                      <h4 class="font-semibold text-purple-900 mb-2">ApiRequestService</h4>
-                      <p class="text-sm text-purple-700">API 接口封装层</p>
+                    <div class="bg-purple-50 rounded-lg p-3 sm:p-4 border border-purple-200">
+                      <h4 class="font-semibold text-purple-900 mb-2 text-sm sm:text-base">ApiRequestService</h4>
+                      <p class="text-xs sm:text-sm text-purple-700">API 接口封装层</p>
                     </div>
                   </div>
                 </div>
@@ -158,16 +158,16 @@
                 <!-- 存储服务 -->
                 <div class="mb-8">
                   <h3 class="text-xl font-semibold text-gray-900 mb-4">存储服务抽象</h3>
-                  <div class="bg-gray-50 rounded-lg p-4">
+                  <div class="bg-gray-50 rounded-lg p-3 sm:p-4">
                     <p class="text-gray-700 mb-3">统一的数据存储接口，支持多种存储方式：</p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                       <div class="bg-white rounded border p-3">
-                        <h4 class="font-semibold text-gray-900 mb-2">LocalStorageService</h4>
-                        <p class="text-sm text-gray-600">基于 localStorage 的本地存储</p>
+                        <h4 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">LocalStorageService</h4>
+                        <p class="text-xs sm:text-sm text-gray-600">基于 localStorage 的本地存储</p>
                       </div>
                       <div class="bg-white rounded border p-3">
-                        <h4 class="font-semibold text-gray-900 mb-2">IndexDBStorageService</h4>
-                        <p class="text-sm text-gray-600">基于 IndexedDB 的大容量存储</p>
+                        <h4 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">IndexDBStorageService</h4>
+                        <p class="text-xs sm:text-sm text-gray-600">基于 IndexedDB 的大容量存储</p>
                       </div>
                     </div>
                   </div>
@@ -184,30 +184,30 @@
                   </svg>
                   插件系统
                 </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  <div class="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-lg p-4 border border-yellow-200">
-                    <h3 class="font-semibold text-gray-900 mb-2">国际化 (i18n)</h3>
-                    <p class="text-sm text-gray-700">多语言支持，动态切换</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+                  <div class="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-lg p-3 sm:p-4 border border-yellow-200">
+                    <h3 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">国际化 (i18n)</h3>
+                    <p class="text-xs sm:text-sm text-gray-700">多语言支持，动态切换</p>
                   </div>
-                  <div class="bg-gradient-to-br from-red-50 to-pink-50 rounded-lg p-4 border border-red-200">
-                    <h3 class="font-semibold text-gray-900 mb-2">消息提示</h3>
-                    <p class="text-sm text-gray-700">统一的消息通知系统</p>
+                  <div class="bg-gradient-to-br from-red-50 to-pink-50 rounded-lg p-3 sm:p-4 border border-red-200">
+                    <h3 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">消息提示</h3>
+                    <p class="text-xs sm:text-sm text-gray-700">统一的消息通知系统</p>
                   </div>
-                  <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg p-4 border border-blue-200">
-                    <h3 class="font-semibold text-gray-900 mb-2">加载状态</h3>
-                    <p class="text-sm text-gray-700">全局加载状态管理</p>
+                  <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg p-3 sm:p-4 border border-blue-200">
+                    <h3 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">加载状态</h3>
+                    <p class="text-xs sm:text-sm text-gray-700">全局加载状态管理</p>
                   </div>
-                  <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-4 border border-green-200">
-                    <h3 class="font-semibold text-gray-900 mb-2">通知系统</h3>
-                    <p class="text-sm text-gray-700">桌面通知集成</p>
+                  <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-3 sm:p-4 border border-green-200">
+                    <h3 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">通知系统</h3>
+                    <p class="text-xs sm:text-sm text-gray-700">桌面通知集成</p>
                   </div>
-                  <div class="bg-gradient-to-br from-purple-50 to-violet-50 rounded-lg p-4 border border-purple-200">
-                    <h3 class="font-semibold text-gray-900 mb-2">Pinia Hooks</h3>
-                    <p class="text-sm text-gray-700">状态管理生命周期</p>
+                  <div class="bg-gradient-to-br from-purple-50 to-violet-50 rounded-lg p-3 sm:p-4 border border-purple-200">
+                    <h3 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">Pinia Hooks</h3>
+                    <p class="text-xs sm:text-sm text-gray-700">状态管理生命周期</p>
                   </div>
-                  <div class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-lg p-4 border border-indigo-200">
-                    <h3 class="font-semibold text-gray-900 mb-2">用户活动</h3>
-                    <p class="text-sm text-gray-700">用户行为追踪</p>
+                  <div class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-lg p-3 sm:p-4 border border-indigo-200">
+                    <h3 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">用户活动</h3>
+                    <p class="text-xs sm:text-sm text-gray-700">用户行为追踪</p>
                   </div>
                 </div>
               </section>
@@ -298,23 +298,23 @@
                   </svg>
                   快速开始
                 </h2>
-                <div class="bg-gray-900 rounded-lg p-6 text-white">
-                  <div class="space-y-4">
+                <div class="bg-gray-900 rounded-lg p-4 sm:p-6 text-white">
+                  <div class="space-y-3 sm:space-y-4">
                     <div>
-                      <h3 class="text-lg font-semibold mb-2">一键启动</h3>
-                      <div class="bg-gray-800 rounded p-3 font-mono text-sm">
+                      <h3 class="text-base sm:text-lg font-semibold mb-2">一键启动</h3>
+                      <div class="bg-gray-800 rounded p-2 sm:p-3 font-mono text-xs sm:text-sm overflow-x-auto">
                         <span class="text-green-400">$</span> npm init @luxine/vue@latest
                       </div>
                     </div>
                     <div>
-                      <h3 class="text-lg font-semibold mb-2">构建生产版本</h3>
-                      <div class="bg-gray-800 rounded p-3 font-mono text-sm">
+                      <h3 class="text-base sm:text-lg font-semibold mb-2">构建生产版本</h3>
+                      <div class="bg-gray-800 rounded p-2 sm:p-3 font-mono text-xs sm:text-sm overflow-x-auto">
                         <span class="text-green-400">$</span> pnpm build
                       </div>
                     </div>
                     <div>
-                      <h3 class="text-lg font-semibold mb-2">桌面应用构建</h3>
-                      <div class="bg-gray-800 rounded p-3 font-mono text-sm">
+                      <h3 class="text-base sm:text-lg font-semibold mb-2">桌面应用构建</h3>
+                      <div class="bg-gray-800 rounded p-2 sm:p-3 font-mono text-xs sm:text-sm overflow-x-auto">
                         <span class="text-green-400">$</span> pnpm build/desktop
                       </div>
                     </div>
@@ -332,47 +332,71 @@
                   </svg>
                   项目结构
                 </h2>
-                <div class="bg-gray-50 rounded-lg p-6">
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-50 rounded-lg p-4 sm:p-6">
+                  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
                     <div>
-                      <h3 class="text-lg font-semibold text-gray-900 mb-3">核心目录</h3>
-                      <ul class="space-y-2 text-sm text-gray-700">
-                        <li class="flex items-center">
-                          <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
-                          <code class="bg-white px-2 py-1 rounded">src/basis/</code> - 基础架构
+                      <h3 class="text-base sm:text-lg font-semibold text-gray-900 mb-3">核心目录</h3>
+                      <ul class="space-y-2 text-xs sm:text-sm text-gray-700">
+                        <li class="flex items-start">
+                          <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2 mt-2 flex-shrink-0"></span>
+                          <div class="flex-1 min-w-0">
+                            <code class="bg-white px-2 py-1 rounded text-xs">src/basis/</code>
+                            <span class="ml-2">基础架构</span>
+                          </div>
                         </li>
-                        <li class="flex items-center">
-                          <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
-                          <code class="bg-white px-2 py-1 rounded">src/adapters/</code> - 适配器层
+                        <li class="flex items-start">
+                          <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2 mt-2 flex-shrink-0"></span>
+                          <div class="flex-1 min-w-0">
+                            <code class="bg-white px-2 py-1 rounded text-xs">src/adapters/</code>
+                            <span class="ml-2">适配器层</span>
+                          </div>
                         </li>
-                        <li class="flex items-center">
-                          <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
-                          <code class="bg-white px-2 py-1 rounded">src/interface/</code> - 接口定义
+                        <li class="flex items-start">
+                          <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2 mt-2 flex-shrink-0"></span>
+                          <div class="flex-1 min-w-0">
+                            <code class="bg-white px-2 py-1 rounded text-xs">src/interface/</code>
+                            <span class="ml-2">接口定义</span>
+                          </div>
                         </li>
-                        <li class="flex items-center">
-                          <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
-                          <code class="bg-white px-2 py-1 rounded">src/plugins/</code> - 插件系统
+                        <li class="flex items-start">
+                          <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2 mt-2 flex-shrink-0"></span>
+                          <div class="flex-1 min-w-0">
+                            <code class="bg-white px-2 py-1 rounded text-xs">src/plugins/</code>
+                            <span class="ml-2">插件系统</span>
+                          </div>
                         </li>
                       </ul>
                     </div>
                     <div>
-                      <h3 class="text-lg font-semibold text-gray-900 mb-3">功能模块</h3>
-                      <ul class="space-y-2 text-sm text-gray-700">
-                        <li class="flex items-center">
-                          <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                          <code class="bg-white px-2 py-1 rounded">src/views/</code> - 页面组件
+                      <h3 class="text-base sm:text-lg font-semibold text-gray-900 mb-3">功能模块</h3>
+                      <ul class="space-y-2 text-xs sm:text-sm text-gray-700">
+                        <li class="flex items-start">
+                          <span class="w-2 h-2 bg-green-500 rounded-full mr-2 mt-2 flex-shrink-0"></span>
+                          <div class="flex-1 min-w-0">
+                            <code class="bg-white px-2 py-1 rounded text-xs">src/views/</code>
+                            <span class="ml-2">页面组件</span>
+                          </div>
                         </li>
-                        <li class="flex items-center">
-                          <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                          <code class="bg-white px-2 py-1 rounded">src/components/</code> - 通用组件
+                        <li class="flex items-start">
+                          <span class="w-2 h-2 bg-green-500 rounded-full mr-2 mt-2 flex-shrink-0"></span>
+                          <div class="flex-1 min-w-0">
+                            <code class="bg-white px-2 py-1 rounded text-xs">src/components/</code>
+                            <span class="ml-2">通用组件</span>
+                          </div>
                         </li>
-                        <li class="flex items-center">
-                          <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                          <code class="bg-white px-2 py-1 rounded">src/router/</code> - 路由配置
+                        <li class="flex items-start">
+                          <span class="w-2 h-2 bg-green-500 rounded-full mr-2 mt-2 flex-shrink-0"></span>
+                          <div class="flex-1 min-w-0">
+                            <code class="bg-white px-2 py-1 rounded text-xs">src/router/</code>
+                            <span class="ml-2">路由配置</span>
+                          </div>
                         </li>
-                        <li class="flex items-center">
-                          <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                          <code class="bg-white px-2 py-1 rounded">src/shared/</code> - 工具函数
+                        <li class="flex items-start">
+                          <span class="w-2 h-2 bg-green-500 rounded-full mr-2 mt-2 flex-shrink-0"></span>
+                          <div class="flex-1 min-w-0">
+                            <code class="bg-white px-2 py-1 rounded text-xs">src/shared/</code>
+                            <span class="ml-2">工具函数</span>
+                          </div>
                         </li>
                       </ul>
                     </div>
@@ -396,7 +420,7 @@
                   <h3 class="text-xl font-semibold text-gray-900 mb-4">依赖注入容器 (DIContainer)</h3>
                   <div class="bg-gray-50 rounded-lg p-4 mb-4">
                     <p class="text-gray-700 mb-3">统一的服务管理，确保全局单例模式：</p>
-                    <div class="bg-white rounded border p-4 font-mono text-sm">
+                    <div class="bg-white rounded border p-4 font-mono text-sm overflow-x-auto">
                       <div class="text-indigo-600">// 注入服务</div>
                       <div>DIContainer.injectStoreModel(LocalStorageService);</div>
                       <div>DIContainer.injectRequestsModel(apiService);</div>
@@ -410,20 +434,20 @@
                 <!-- 网络请求 -->
                 <div class="mb-8">
                   <h3 class="text-xl font-semibold text-gray-900 mb-4">网络请求服务</h3>
-                  <div class="bg-gray-50 rounded-lg p-4">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="bg-gray-50 rounded-lg p-3 sm:p-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                       <div class="bg-white rounded border p-3">
-                        <h4 class="font-semibold text-gray-900 mb-2">GET请求</h4>
-                        <div class="text-sm text-gray-600 font-mono">
-                          <div>const users = await requestService</div>
-                          <div>.get&lt;User[]&gt;('/api/users');</div>
+                        <h4 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">GET请求</h4>
+                        <div class="text-xs sm:text-sm text-gray-600 font-mono overflow-x-auto">
+                          <div class="break-all">const users = await requestService</div>
+                          <div class="break-all">.get&lt;User[]&gt;('/api/users');</div>
                         </div>
                       </div>
                       <div class="bg-white rounded border p-3">
-                        <h4 class="font-semibold text-gray-900 mb-2">POST请求</h4>
-                        <div class="text-sm text-gray-600 font-mono">
-                          <div>const user = await requestService</div>
-                          <div>.post&lt;User&gt;('/api/users', userData);</div>
+                        <h4 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">POST请求</h4>
+                        <div class="text-xs sm:text-sm text-gray-600 font-mono overflow-x-auto">
+                          <div class="break-all">const user = await requestService</div>
+                          <div class="break-all">.post&lt;User&gt;('/api/users', userData);</div>
                         </div>
                       </div>
                     </div>
@@ -433,19 +457,19 @@
                 <!-- 存储服务 -->
                 <div class="mb-8">
                   <h3 class="text-xl font-semibold text-gray-900 mb-4">存储服务</h3>
-                  <div class="bg-gray-50 rounded-lg p-4">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="bg-gray-50 rounded-lg p-3 sm:p-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                       <div class="bg-white rounded border p-3">
-                        <h4 class="font-semibold text-gray-900 mb-2">存储数据</h4>
-                        <div class="text-sm text-gray-600 font-mono">
-                          <div>await storeService.set('user', userData);</div>
+                        <h4 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">存储数据</h4>
+                        <div class="text-xs sm:text-sm text-gray-600 font-mono overflow-x-auto">
+                          <div class="break-all">await storeService.set('user', userData);</div>
                         </div>
                       </div>
                       <div class="bg-white rounded border p-3">
-                        <h4 class="font-semibold text-gray-900 mb-2">读取数据</h4>
-                        <div class="text-sm text-gray-600 font-mono">
-                          <div>const user = await storeService</div>
-                          <div>.get&lt;User&gt;('user');</div>
+                        <h4 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">读取数据</h4>
+                        <div class="text-xs sm:text-sm text-gray-600 font-mono overflow-x-auto">
+                          <div class="break-all">const user = await storeService</div>
+                          <div class="break-all">.get&lt;User&gt;('user');</div>
                         </div>
                       </div>
                     </div>
@@ -455,31 +479,29 @@
                 <!-- WebSocket服务 -->
                 <div class="mb-8">
                   <h3 class="text-xl font-semibold text-gray-900 mb-4">WebSocket服务</h3>
-                  <div class="bg-gray-50 rounded-lg p-4">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="bg-gray-50 rounded-lg p-3 sm:p-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                       <div class="bg-white rounded border p-3">
-                        <h4 class="font-semibold text-gray-900 mb-2">初始化连接</h4>
-                        <div class="text-sm text-gray-600 font-mono">
-                          <div>const ws = initWebSocket</div>
-                          <div>('ws://localhost:8080');</div>
+                        <h4 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">初始化连接</h4>
+                        <div class="text-xs sm:text-sm text-gray-600 font-mono overflow-x-auto">
+                          <div class="break-all">const ws = initWebSocket</div>
+                          <div class="break-all">('ws://localhost:8080');</div>
                         </div>
                       </div>
                       <div class="bg-white rounded border p-3">
-                        <h4 class="font-semibold text-gray-900 mb-2">监听消息</h4>
-                        <div class="text-sm text-gray-600 font-mono">
-                          <div>ws.on('message', (data) => {</div>
-                          <div>  console.log(data);</div>
-                          <div>});</div>
+                        <h4 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">监听消息</h4>
+                        <div class="text-xs sm:text-sm text-gray-600 font-mono overflow-x-auto">
+                          <div class="break-all">ws.on('message', (data) => {</div>
+                          <div class="break-all">  console.log(data);</div>
+                          <div class="break-all">});</div>
                         </div>
                       </div>
                     </div>
                     <div class="mt-4">
                       <div class="bg-white rounded border p-3">
-                        <h4 class="font-semibold text-gray-900 mb-2">发送消息</h4>
-                        <div class="text-sm text-gray-600 font-mono">
-                          <div>ws.send('chat', 'user', {</div>
-                          <div>  message: 'Hello!'</div>
-                          <div>});</div>
+                        <h4 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">发送消息</h4>
+                        <div class="text-xs sm:text-sm text-gray-600 font-mono overflow-x-auto">
+                          <div class="break-all">ws.send('chat', 'user', {  message: 'Hello!'});</div>
                         </div>
                       </div>
                     </div>
@@ -489,29 +511,29 @@
                 <!-- 工具函数 -->
                 <div class="mb-8">
                   <h3 class="text-xl font-semibold text-gray-900 mb-4">工具函数 (Utils)</h3>
-                  <div class="bg-gray-50 rounded-lg p-4">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="bg-gray-50 rounded-lg p-3 sm:p-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                       <div class="bg-white rounded border p-3">
-                        <h4 class="font-semibold text-gray-900 mb-2">二进制编码</h4>
-                        <div class="text-sm text-gray-600 font-mono">
-                          <div>const binary = Utils.toBinary(data);</div>
-                          <div>const base64 = Utils.toBaseBinary(data);</div>
+                        <h4 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">二进制编码</h4>
+                        <div class="text-xs sm:text-sm text-gray-600 font-mono overflow-x-auto">
+                          <div class="break-all">const binary = Utils.toBinary(data);</div>
+                          <div class="break-all">const base64 = Utils.toBaseBinary(data);</div>
                         </div>
                       </div>
                       <div class="bg-white rounded border p-3">
-                        <h4 class="font-semibold text-gray-900 mb-2">URL生成</h4>
-                        <div class="text-sm text-gray-600 font-mono">
-                          <div>const url = Utils.generateQueryUrl</div>
-                          <div>('/api/users', { page: 1 });</div>
+                        <h4 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">URL生成</h4>
+                        <div class="text-xs sm:text-sm text-gray-600 font-mono overflow-x-auto">
+                          <div class="break-all">const url = Utils.generateQueryUrl</div>
+                          <div class="break-all">('/api/users', { page: 1 });</div>
                         </div>
                       </div>
                     </div>
                     <div class="mt-4">
                       <div class="bg-white rounded border p-3">
-                        <h4 class="font-semibold text-gray-900 mb-2">环境检测</h4>
-                        <div class="text-sm text-gray-600 font-mono">
-                          <div>const isDev = Utils.isDev();</div>
-                          <div>const apiUrl = Utils.getApiBaseURL();</div>
+                        <h4 class="font-semibold text-gray-900 mb-2 text-sm sm:text-base">环境检测</h4>
+                        <div class="text-xs sm:text-sm text-gray-600 font-mono overflow-x-auto">
+                          <div class="break-all">const isDev = Utils.isDev();</div>
+                          <div class="break-all">const apiUrl = Utils.getApiBaseURL();</div>
                         </div>
                       </div>
                     </div>
@@ -554,29 +576,29 @@
                 <!-- 开发命令 -->
                 <div class="mb-8">
                   <h3 class="text-xl font-semibold text-gray-900 mb-4">开发命令</h3>
-                  <div class="bg-gray-900 rounded-lg p-6 text-white">
-                    <div class="space-y-4">
+                  <div class="bg-gray-900 rounded-lg p-4 sm:p-6 text-white">
+                    <div class="space-y-3 sm:space-y-4">
                       <div>
-                        <h4 class="text-lg font-semibold mb-2">安装依赖</h4>
-                        <div class="bg-gray-800 rounded p-3 font-mono text-sm">
+                        <h4 class="text-base sm:text-lg font-semibold mb-2">安装依赖</h4>
+                        <div class="bg-gray-800 rounded p-2 sm:p-3 font-mono text-xs sm:text-sm overflow-x-auto">
                           <span class="text-green-400">$</span> pnpm install
                         </div>
                       </div>
                       <div>
-                        <h4 class="text-lg font-semibold mb-2">Web开发</h4>
-                        <div class="bg-gray-800 rounded p-3 font-mono text-sm">
+                        <h4 class="text-base sm:text-lg font-semibold mb-2">Web开发</h4>
+                        <div class="bg-gray-800 rounded p-2 sm:p-3 font-mono text-xs sm:text-sm overflow-x-auto">
                           <span class="text-green-400">$</span> pnpm dev
                         </div>
                       </div>
                       <div>
-                        <h4 class="text-lg font-semibold mb-2">桌面开发</h4>
-                        <div class="bg-gray-800 rounded p-3 font-mono text-sm">
+                        <h4 class="text-base sm:text-lg font-semibold mb-2">桌面开发</h4>
+                        <div class="bg-gray-800 rounded p-2 sm:p-3 font-mono text-xs sm:text-sm overflow-x-auto">
                           <span class="text-green-400">$</span> pnpm dev/desktop
                         </div>
                       </div>
                       <div>
-                        <h4 class="text-lg font-semibold mb-2">代码检查</h4>
-                        <div class="bg-gray-800 rounded p-3 font-mono text-sm">
+                        <h4 class="text-base sm:text-lg font-semibold mb-2">代码检查</h4>
+                        <div class="bg-gray-800 rounded p-2 sm:p-3 font-mono text-xs sm:text-sm overflow-x-auto">
                           <span class="text-green-400">$</span> pnpm fix
                         </div>
                       </div>
@@ -587,21 +609,21 @@
                 <!-- 状态管理 -->
                 <div class="mb-8">
                   <h3 class="text-xl font-semibold text-gray-900 mb-4">状态管理 (Pinia Hooks)</h3>
-                  <div class="bg-gray-50 rounded-lg p-4">
+                  <div class="bg-gray-50 rounded-lg p-3 sm:p-4">
                     <p class="text-gray-700 mb-3">使用自定义Hooks进行状态管理：</p>
-                    <div class="bg-white rounded border p-4 font-mono text-sm">
+                    <div class="bg-white rounded border p-3 sm:p-4 font-mono text-xs sm:text-sm overflow-x-auto">
                       <div class="text-indigo-600">// 定义Store</div>
-                      <div>export const useUserStore = defineStore('user', () => {</div>
-                      <div class="ml-4">const user = ref&lt;User | null&gt;(null);</div>
-                      <div class="ml-4">const __initState__ = ref(false);</div>
+                      <div class="break-all">export const useUserStore = defineStore('user', () => {</div>
+                      <div class="ml-4 break-all">const user = ref&lt;User | null&gt;(null);</div>
+                      <div class="ml-4 break-all">const __initState__ = ref(false);</div>
                       <div class="ml-4"></div>
                       <div class="ml-4 text-indigo-600">// 初始化Hook</div>
-                      <div class="ml-4">const __init__ = async () => {</div>
-                      <div class="ml-8">const userData = await loadUserData();</div>
-                      <div class="ml-8">user.value = userData;</div>
+                      <div class="ml-4 break-all">const __init__ = async () => {</div>
+                      <div class="ml-8 break-all">const userData = await loadUserData();</div>
+                      <div class="ml-8 break-all">user.value = userData;</div>
                       <div class="ml-4">};</div>
                       <div class="ml-4"></div>
-                      <div class="ml-4">return { user, __init__, __initState__ };</div>
+                      <div class="ml-4 break-all">return { user, __init__, __initState__ };</div>
                       <div>});</div>
                     </div>
                   </div>
@@ -754,30 +776,30 @@
                 <!-- 类型说明 -->
                 <div class="mb-8">
                   <h3 class="text-xl font-semibold text-gray-900 mb-4">提交类型</h3>
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-white rounded border p-4">
-                      <h4 class="font-semibold text-green-600 mb-2">feat</h4>
-                      <p class="text-sm text-gray-600">新功能</p>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+                    <div class="bg-white rounded border p-3 sm:p-4">
+                      <h4 class="font-semibold text-green-600 mb-2 text-sm sm:text-base">feat</h4>
+                      <p class="text-xs sm:text-sm text-gray-600">新功能</p>
                     </div>
-                    <div class="bg-white rounded border p-4">
-                      <h4 class="font-semibold text-red-600 mb-2">fix</h4>
-                      <p class="text-sm text-gray-600">修复问题</p>
+                    <div class="bg-white rounded border p-3 sm:p-4">
+                      <h4 class="font-semibold text-red-600 mb-2 text-sm sm:text-base">fix</h4>
+                      <p class="text-xs sm:text-sm text-gray-600">修复问题</p>
                     </div>
-                    <div class="bg-white rounded border p-4">
-                      <h4 class="font-semibold text-blue-600 mb-2">docs</h4>
-                      <p class="text-sm text-gray-600">文档更新</p>
+                    <div class="bg-white rounded border p-3 sm:p-4">
+                      <h4 class="font-semibold text-blue-600 mb-2 text-sm sm:text-base">docs</h4>
+                      <p class="text-xs sm:text-sm text-gray-600">文档更新</p>
                     </div>
-                    <div class="bg-white rounded border p-4">
-                      <h4 class="font-semibold text-yellow-600 mb-2">style</h4>
-                      <p class="text-sm text-gray-600">代码格式调整</p>
+                    <div class="bg-white rounded border p-3 sm:p-4">
+                      <h4 class="font-semibold text-yellow-600 mb-2 text-sm sm:text-base">style</h4>
+                      <p class="text-xs sm:text-sm text-gray-600">代码格式调整</p>
                     </div>
-                    <div class="bg-white rounded border p-4">
-                      <h4 class="font-semibold text-purple-600 mb-2">refactor</h4>
-                      <p class="text-sm text-gray-600">重构</p>
+                    <div class="bg-white rounded border p-3 sm:p-4">
+                      <h4 class="font-semibold text-purple-600 mb-2 text-sm sm:text-base">refactor</h4>
+                      <p class="text-xs sm:text-sm text-gray-600">重构</p>
                     </div>
-                    <div class="bg-white rounded border p-4">
-                      <h4 class="font-semibold text-indigo-600 mb-2">test</h4>
-                      <p class="text-sm text-gray-600">测试相关</p>
+                    <div class="bg-white rounded border p-3 sm:p-4">
+                      <h4 class="font-semibold text-indigo-600 mb-2 text-sm sm:text-base">test</h4>
+                      <p class="text-xs sm:text-sm text-gray-600">测试相关</p>
                     </div>
                   </div>
                 </div>
@@ -860,6 +882,42 @@ const scrollToSection = (id: string) => {
   .sticky {
     position: relative;
     top: 0;
+  }
+  
+  /* 小屏幕下的文本调整 */
+  .text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+  
+  /* 小屏幕下的间距调整 */
+  .space-y-3 > * + * {
+    margin-top: 0.75rem;
+  }
+  
+  /* 小屏幕下的代码块调整 */
+  .font-mono {
+    font-size: 0.75rem;
+  }
+  
+  /* 小屏幕下的网格调整 */
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+/* 超小屏幕优化 */
+@media (max-width: 480px) {
+  .p-3 {
+    padding: 0.5rem;
+  }
+  
+  .text-xs {
+    font-size: 0.7rem;
+  }
+  
+  .font-mono {
+    font-size: 0.7rem;
   }
 }
 </style>
