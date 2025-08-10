@@ -1,4 +1,4 @@
-# Vue 通用项目模板
+# Vue 3 + Vite + TypeScript 通用项目模板  
 
 一个功能完整、架构清晰的 Vue 3 + TypeScript 项目模板，支持多平台部署（Web、Desktop、Mobile）。
 
