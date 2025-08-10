@@ -24,22 +24,6 @@
 - **更新日志**: 版本历史和变更记录
 - **贡献指南**: 贡献流程和提交规范
 
-## 组件说明
-
-### DocsCodeBlock.vue
-用于展示代码示例的组件：
-```vue
-<DocsCodeBlock title="示例代码">
-const example = 'Hello World';
-console.log(example);
-</DocsCodeBlock>
-```
-
-### DocsNavigation.vue
-文档导航组件，提供目录导航功能：
-```vue
-<DocsNavigation :sections="sections" />
-```
 
 ## 使用方式
 
