@@ -379,6 +379,409 @@
                   </div>
                 </div>
               </section>
+
+              <!-- API使用指南 -->
+              <section id="api-guide" class="mb-12 anchor-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                  <svg class="h-6 w-6 text-indigo-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 001 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  API使用指南
+                </h2>
+                
+                <!-- 依赖注入容器 -->
+                <div class="mb-8">
+                  <h3 class="text-xl font-semibold text-gray-900 mb-4">依赖注入容器 (DIContainer)</h3>
+                  <div class="bg-gray-50 rounded-lg p-4 mb-4">
+                    <p class="text-gray-700 mb-3">统一的服务管理，确保全局单例模式：</p>
+                    <div class="bg-white rounded border p-4 font-mono text-sm">
+                      <div class="text-indigo-600">// 注入服务</div>
+                      <div>DIContainer.injectStoreModel(LocalStorageService);</div>
+                      <div>DIContainer.injectRequestsModel(apiService);</div>
+                      <div class="text-indigo-600 mt-2">// 使用服务</div>
+                      <div>const apiResult = await RequestService.get('/api/version');</div>
+                      <div>const storeResult = await StoreService.get('version');</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 网络请求 -->
+                <div class="mb-8">
+                  <h3 class="text-xl font-semibold text-gray-900 mb-4">网络请求服务</h3>
+                  <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div class="bg-white rounded border p-3">
+                        <h4 class="font-semibold text-gray-900 mb-2">GET请求</h4>
+                        <div class="text-sm text-gray-600 font-mono">
+                          <div>const users = await requestService</div>
+                          <div>.get&lt;User[]&gt;('/api/users');</div>
+                        </div>
+                      </div>
+                      <div class="bg-white rounded border p-3">
+                        <h4 class="font-semibold text-gray-900 mb-2">POST请求</h4>
+                        <div class="text-sm text-gray-600 font-mono">
+                          <div>const user = await requestService</div>
+                          <div>.post&lt;User&gt;('/api/users', userData);</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 存储服务 -->
+                <div class="mb-8">
+                  <h3 class="text-xl font-semibold text-gray-900 mb-4">存储服务</h3>
+                  <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div class="bg-white rounded border p-3">
+                        <h4 class="font-semibold text-gray-900 mb-2">存储数据</h4>
+                        <div class="text-sm text-gray-600 font-mono">
+                          <div>await storeService.set('user', userData);</div>
+                        </div>
+                      </div>
+                      <div class="bg-white rounded border p-3">
+                        <h4 class="font-semibold text-gray-900 mb-2">读取数据</h4>
+                        <div class="text-sm text-gray-600 font-mono">
+                          <div>const user = await storeService</div>
+                          <div>.get&lt;User&gt;('user');</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- WebSocket服务 -->
+                <div class="mb-8">
+                  <h3 class="text-xl font-semibold text-gray-900 mb-4">WebSocket服务</h3>
+                  <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div class="bg-white rounded border p-3">
+                        <h4 class="font-semibold text-gray-900 mb-2">初始化连接</h4>
+                        <div class="text-sm text-gray-600 font-mono">
+                          <div>const ws = initWebSocket</div>
+                          <div>('ws://localhost:8080');</div>
+                        </div>
+                      </div>
+                      <div class="bg-white rounded border p-3">
+                        <h4 class="font-semibold text-gray-900 mb-2">监听消息</h4>
+                        <div class="text-sm text-gray-600 font-mono">
+                          <div>ws.on('message', (data) => {</div>
+                          <div>  console.log(data);</div>
+                          <div>});</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mt-4">
+                      <div class="bg-white rounded border p-3">
+                        <h4 class="font-semibold text-gray-900 mb-2">发送消息</h4>
+                        <div class="text-sm text-gray-600 font-mono">
+                          <div>ws.send('chat', 'user', {</div>
+                          <div>  message: 'Hello!'</div>
+                          <div>});</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 工具函数 -->
+                <div class="mb-8">
+                  <h3 class="text-xl font-semibold text-gray-900 mb-4">工具函数 (Utils)</h3>
+                  <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div class="bg-white rounded border p-3">
+                        <h4 class="font-semibold text-gray-900 mb-2">二进制编码</h4>
+                        <div class="text-sm text-gray-600 font-mono">
+                          <div>const binary = Utils.toBinary(data);</div>
+                          <div>const base64 = Utils.toBaseBinary(data);</div>
+                        </div>
+                      </div>
+                      <div class="bg-white rounded border p-3">
+                        <h4 class="font-semibold text-gray-900 mb-2">URL生成</h4>
+                        <div class="text-sm text-gray-600 font-mono">
+                          <div>const url = Utils.generateQueryUrl</div>
+                          <div>('/api/users', { page: 1 });</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mt-4">
+                      <div class="bg-white rounded border p-3">
+                        <h4 class="font-semibold text-gray-900 mb-2">环境检测</h4>
+                        <div class="text-sm text-gray-600 font-mono">
+                          <div>const isDev = Utils.isDev();</div>
+                          <div>const apiUrl = Utils.getApiBaseURL();</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- 开发指南 -->
+              <section id="development" class="mb-12 anchor-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                  <svg class="h-6 w-6 text-indigo-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  开发指南
+                </h2>
+                
+                <!-- 环境要求 -->
+                <div class="mb-8">
+                  <h3 class="text-xl font-semibold text-gray-900 mb-4">环境要求</h3>
+                  <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div class="bg-white rounded border p-3 text-center">
+                        <div class="text-2xl font-bold text-blue-600 mb-1">18.0.0+</div>
+                        <div class="text-sm text-gray-600">Node.js</div>
+                      </div>
+                      <div class="bg-white rounded border p-3 text-center">
+                        <div class="text-2xl font-bold text-green-600 mb-1">8.0.0+</div>
+                        <div class="text-sm text-gray-600">pnpm</div>
+                      </div>
+                      <div class="bg-white rounded border p-3 text-center">
+                        <div class="text-2xl font-bold text-purple-600 mb-1">2.0.0+</div>
+                        <div class="text-sm text-gray-600">Git</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 开发命令 -->
+                <div class="mb-8">
+                  <h3 class="text-xl font-semibold text-gray-900 mb-4">开发命令</h3>
+                  <div class="bg-gray-900 rounded-lg p-6 text-white">
+                    <div class="space-y-4">
+                      <div>
+                        <h4 class="text-lg font-semibold mb-2">安装依赖</h4>
+                        <div class="bg-gray-800 rounded p-3 font-mono text-sm">
+                          <span class="text-green-400">$</span> pnpm install
+                        </div>
+                      </div>
+                      <div>
+                        <h4 class="text-lg font-semibold mb-2">Web开发</h4>
+                        <div class="bg-gray-800 rounded p-3 font-mono text-sm">
+                          <span class="text-green-400">$</span> pnpm dev
+                        </div>
+                      </div>
+                      <div>
+                        <h4 class="text-lg font-semibold mb-2">桌面开发</h4>
+                        <div class="bg-gray-800 rounded p-3 font-mono text-sm">
+                          <span class="text-green-400">$</span> pnpm dev/desktop
+                        </div>
+                      </div>
+                      <div>
+                        <h4 class="text-lg font-semibold mb-2">代码检查</h4>
+                        <div class="bg-gray-800 rounded p-3 font-mono text-sm">
+                          <span class="text-green-400">$</span> pnpm fix
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 状态管理 -->
+                <div class="mb-8">
+                  <h3 class="text-xl font-semibold text-gray-900 mb-4">状态管理 (Pinia Hooks)</h3>
+                  <div class="bg-gray-50 rounded-lg p-4">
+                    <p class="text-gray-700 mb-3">使用自定义Hooks进行状态管理：</p>
+                    <div class="bg-white rounded border p-4 font-mono text-sm">
+                      <div class="text-indigo-600">// 定义Store</div>
+                      <div>export const useUserStore = defineStore('user', () => {</div>
+                      <div class="ml-4">const user = ref&lt;User | null&gt;(null);</div>
+                      <div class="ml-4">const __initState__ = ref(false);</div>
+                      <div class="ml-4"></div>
+                      <div class="ml-4 text-indigo-600">// 初始化Hook</div>
+                      <div class="ml-4">const __init__ = async () => {</div>
+                      <div class="ml-8">const userData = await loadUserData();</div>
+                      <div class="ml-8">user.value = userData;</div>
+                      <div class="ml-4">};</div>
+                      <div class="ml-4"></div>
+                      <div class="ml-4">return { user, __init__, __initState__ };</div>
+                      <div>});</div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- 更新日志 -->
+              <section id="changelog" class="mb-12 anchor-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                  <svg class="h-6 w-6 text-indigo-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  更新日志
+                </h2>
+                
+                <!-- 最新版本 -->
+                <div class="mb-8">
+                  <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-6 border border-green-200">
+                    <div class="flex items-center justify-between mb-4">
+                      <h3 class="text-xl font-semibold text-gray-900">v1.0.0 - 2025-08-11</h3>
+                      <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">最新版本</span>
+                    </div>
+                    <div class="space-y-3">
+                      <div>
+                        <h4 class="font-semibold text-gray-900 mb-2">✨ 新增功能</h4>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                          <li>• Vue 3.5 + TypeScript + Vite 现代化项目模板</li>
+                          <li>• 多平台支持 (Web、Electron、Capacitor)</li>
+                          <li>• 依赖注入容器 (DIContainer)</li>
+                          <li>• 三层网络请求架构</li>
+                          <li>• 存储服务抽象层</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-gray-900 mb-2">🔧 核心特性</h4>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                          <li>• 技术栈: Vue 3.5、TypeScript 5.8、Vite 6</li>
+                          <li>• 状态管理: Pinia + 自定义Hooks</li>
+                          <li>• UI组件: Element Plus</li>
+                          <li>• 样式框架: Tailwind CSS v4</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 版本说明 -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                  <h3 class="text-lg font-semibold text-gray-900 mb-4">版本说明</h3>
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white rounded border p-3">
+                      <h4 class="font-semibold text-red-600 mb-2">主版本号</h4>
+                      <p class="text-sm text-gray-600">不兼容的API修改</p>
+                    </div>
+                    <div class="bg-white rounded border p-3">
+                      <h4 class="font-semibold text-yellow-600 mb-2">次版本号</h4>
+                      <p class="text-sm text-gray-600">向下兼容的功能性新增</p>
+                    </div>
+                    <div class="bg-white rounded border p-3">
+                      <h4 class="font-semibold text-green-600 mb-2">修订号</h4>
+                      <p class="text-sm text-gray-600">向下兼容的问题修正</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- 贡献指南 -->
+              <section id="contributing" class="mb-12 anchor-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                  <svg class="h-6 w-6 text-indigo-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  贡献指南
+                </h2>
+                
+                <!-- 贡献流程 -->
+                <div class="mb-8">
+                  <h3 class="text-xl font-semibold text-gray-900 mb-4">贡献流程</h3>
+                  <div class="bg-gray-50 rounded-lg p-6">
+                    <div class="space-y-4">
+                      <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                          <span class="text-blue-600 font-semibold">1</span>
+                        </div>
+                        <div>
+                          <h4 class="font-semibold text-gray-900">Fork 项目</h4>
+                          <p class="text-sm text-gray-600">在 GitHub 上 Fork 本仓库到你的账户</p>
+                        </div>
+                      </div>
+                      <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                          <span class="text-green-600 font-semibold">2</span>
+                        </div>
+                        <div>
+                          <h4 class="font-semibold text-gray-900">创建分支</h4>
+                          <p class="text-sm text-gray-600">创建特性分支：<code class="bg-white px-2 py-1 rounded text-sm">git checkout -b feature/AmazingFeature</code></p>
+                        </div>
+                      </div>
+                      <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
+                          <span class="text-yellow-600 font-semibold">3</span>
+                        </div>
+                        <div>
+                          <h4 class="font-semibold text-gray-900">提交更改</h4>
+                          <p class="text-sm text-gray-600">提交你的更改：<code class="bg-white px-2 py-1 rounded text-sm">git commit -m 'Add some AmazingFeature'</code></p>
+                        </div>
+                      </div>
+                      <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                          <span class="text-purple-600 font-semibold">4</span>
+                        </div>
+                        <div>
+                          <h4 class="font-semibold text-gray-900">推送分支</h4>
+                          <p class="text-sm text-gray-600">推送到分支：<code class="bg-white px-2 py-1 rounded text-sm">git push origin feature/AmazingFeature</code></p>
+                        </div>
+                      </div>
+                      <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                          <span class="text-red-600 font-semibold">5</span>
+                        </div>
+                        <div>
+                          <h4 class="font-semibold text-gray-900">创建 Pull Request</h4>
+                          <p class="text-sm text-gray-600">打开 Pull Request 并等待审核</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 提交规范 -->
+                <div class="mb-8">
+                  <h3 class="text-xl font-semibold text-gray-900 mb-4">提交规范</h3>
+                  <div class="bg-gray-50 rounded-lg p-4">
+                    <p class="text-gray-700 mb-3">使用语义化提交信息：</p>
+                    <div class="bg-white rounded border p-4 font-mono text-sm">
+                      <div class="text-indigo-600">// 提交格式</div>
+                      <div>&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</div>
+                      <div class="text-indigo-600 mt-2">// 示例</div>
+                      <div>feat(api): add user authentication</div>
+                      <div>fix(ui): resolve button alignment issue</div>
+                      <div>docs(readme): update installation guide</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 类型说明 -->
+                <div class="mb-8">
+                  <h3 class="text-xl font-semibold text-gray-900 mb-4">提交类型</h3>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white rounded border p-4">
+                      <h4 class="font-semibold text-green-600 mb-2">feat</h4>
+                      <p class="text-sm text-gray-600">新功能</p>
+                    </div>
+                    <div class="bg-white rounded border p-4">
+                      <h4 class="font-semibold text-red-600 mb-2">fix</h4>
+                      <p class="text-sm text-gray-600">修复问题</p>
+                    </div>
+                    <div class="bg-white rounded border p-4">
+                      <h4 class="font-semibold text-blue-600 mb-2">docs</h4>
+                      <p class="text-sm text-gray-600">文档更新</p>
+                    </div>
+                    <div class="bg-white rounded border p-4">
+                      <h4 class="font-semibold text-yellow-600 mb-2">style</h4>
+                      <p class="text-sm text-gray-600">代码格式调整</p>
+                    </div>
+                    <div class="bg-white rounded border p-4">
+                      <h4 class="font-semibold text-purple-600 mb-2">refactor</h4>
+                      <p class="text-sm text-gray-600">重构</p>
+                    </div>
+                    <div class="bg-white rounded border p-4">
+                      <h4 class="font-semibold text-indigo-600 mb-2">test</h4>
+                      <p class="text-sm text-gray-600">测试相关</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
             </div>
           </main>
         </div>
@@ -398,7 +801,11 @@ const sections = ref([
   { id: 'plugins', title: '插件系统' },
   { id: 'tools', title: '开发工具' },
   { id: 'quickstart', title: '快速开始' },
-  { id: 'structure', title: '项目结构' }
+  { id: 'structure', title: '项目结构' },
+  { id: 'api-guide', title: 'API使用指南' },
+  { id: 'development', title: '开发指南' },
+  { id: 'changelog', title: '更新日志' },
+  { id: 'contributing', title: '贡献指南' }
 ])
 
 // 顶部固定区高度（按实际导航高度微调：h-16 ≈ 64px，再加一些余量）
