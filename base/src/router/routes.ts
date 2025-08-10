@@ -23,6 +23,14 @@ const routes: RouteRecordRaw[] = [
           title: 'home',
         },
       },
+      {
+        path: '/docs',
+        name: 'docs',
+        component: () => import('@/views/Docs/Docs.vue'),
+        meta: {
+          title: 'docs',
+        },
+      },
     ],
   },
 ];
