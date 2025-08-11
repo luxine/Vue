@@ -1,288 +1,240 @@
-# Vue 3 + Vite + TypeScript 通用项目模板  
+# Vue Template - 现代化Vue3项目模板
 
-一个功能完整、架构清晰的 Vue 3 + TypeScript 项目模板，支持多平台部署（Web、Desktop、Mobile）。
+[![Vue](https://img.shields.io/badge/Vue-3.5+-green.svg)](https://vuejs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8+-blue.svg)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-6.0+-purple.svg)](https://vitejs.dev/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## 🚀 特性
+一个基于 Vue 3 + TypeScript + Vite 的现代化项目模板，支持多平台部署（Web、Electron、Capacitor），内置完整的开发工具链和最佳实践。
 
-### 核心技术栈
-- **Vue 3** - 渐进式 JavaScript 框架
-- **TypeScript** - 类型安全的 JavaScript 超集
-- **Vite** - 下一代前端构建工具
-- **Pinia** - Vue 状态管理库
-- **Vue Router** - Vue.js 官方路由管理器
-- **Element Plus** - Vue 3 组件库
-- **Tailwind CSS** - 实用优先的 CSS 框架
-
-### 多平台支持
-- 🌐 **Web** - 现代浏览器支持
-- 🖥️ **Desktop** - Electron 桌面应用
-- 📱 **Mobile** - Capacitor 移动应用
-
-### 架构特性
-- 🔧 **依赖注入容器** - 统一的服务管理
-- 🌐 **网络请求抽象层** - 可扩展的 HTTP 客户端
-- 💾 **存储服务抽象** - 统一的数据存储接口
-- 🌍 **国际化支持** - 多语言切换
-- 🔌 **插件系统** - 模块化的功能扩展
-- 🎯 **自定义 Hooks** - 可复用的业务逻辑
-- 🔒 **水印指令** - 内容保护
-- 📊 **WebSocket 支持** - 实时通信
-
-## 📁 项目结构
-
-```
-src/
-├── adapters/           # 适配器层
-│   ├── requests/       # 网络请求适配器
-│   └── store/          # 存储适配器
-├── basis/              # 基础设施
-│   ├── DI/             # 依赖注入容器
-│   ├── RequestService/ # 请求服务基类
-│   └── StoreService/   # 存储服务基类
-├── components/         # 公共组件
-├── directives/         # 自定义指令
-├── hooks/              # 自定义 Hooks
-├── interface/          # 接口定义
-├── middleware/         # 中间件
-├── plugins/            # 插件
-├── router/             # 路由配置
-├── shared/             # 共享工具
-├── styles/             # 样式文件
-├── views/              # 页面组件
-├── ws/                 # WebSocket 模块
-└── main.ts            # 应用入口
+## 🚀 快速开始
+```bash
+npm init @luxine/vue@latest
 ```
 
-## 🛠️ 快速开始
+## ✨ 核心特性
+
+### 🚀 技术栈
+- **Vue 3.5** - 渐进式JavaScript框架
+- **TypeScript 5.8** - 类型安全的JavaScript超集
+- **Vite 6** - 下一代前端构建工具
+- **Tailwind CSS v4** - 实用优先的CSS框架
+- **Pinia** - Vue的状态管理库
+- **Vue Router 4** - Vue.js官方路由管理器
+- **Element Plus** - Vue 3组件库
+
+### 🌐 多平台支持
+- **Web应用** - 现代化的单页应用
+- **Electron桌面应用** - 跨平台桌面应用
+- **Capacitor移动应用** - 原生移动应用
+
+### 🏗️ 架构设计
+- **依赖注入容器** - 统一的服务管理
+- **网络请求抽象层** - 三层架构设计
+- **存储服务抽象** - 支持多种存储方式
+- **插件系统** - 可扩展的插件架构
+
+## 📦 快速开始
 
 ### 环境要求
 - Node.js >= 18.0.0
 - pnpm >= 8.0.0
 
-### 安装依赖
-```bash
-cd base
-pnpm install
-```
 
 ### 开发模式
 ```bash
-# Web 开发
+# Web开发
 pnpm dev
 
-# Desktop 开发
+# Electron桌面开发
 pnpm dev/desktop
+
+# 移动端开发
+pnpm dev/mobile
 ```
 
 ### 构建部署
 ```bash
-# Web 构建
+# Web生产构建
 pnpm build
 
-# Desktop 构建
+# Electron桌面应用构建
 pnpm build/desktop
 
-# Android 构建
+# Android移动应用构建
 pnpm build/android
 ```
 
-## 🏗️ 架构设计
+## 🏛️ 项目架构
 
-### 依赖注入容器 (DIContainer)
-提供统一的服务管理，支持请求服务和存储服务的注入：
+### 目录结构
+```
+src/
+├── adapters/          # 适配器层
+│   ├── requests/      # 网络请求适配器
+│   └── store/         # 存储适配器
+├── basis/             # 基础架构
+│   ├── DI/           # 依赖注入容器
+│   ├── RequestService/ # 请求服务
+│   └── StoreService/   # 存储服务
+├── interface/         # 接口定义
+├── plugins/           # 插件系统
+├── views/             # 页面组件
+├── components/        # 通用组件
+├── router/            # 路由配置
+├── shared/            # 工具函数
+├── ws/                # WebSocket模块
+└── hooks/             # 自定义Hooks
+```
 
+### 核心模块
+
+#### 1. 依赖注入容器 (DIContainer)
+统一的服务管理，确保全局单例模式：
 ```typescript
 // 注入服务
 DIContainer.injectStoreModel(LocalStorageService);
-const apiserve = await createRequstService();
-DIContainer.injectRequestsModel(apiserve);
+DIContainer.injectRequestsModel(apiService);
 
-// 获取服务实例
-const apiResult = await RequestService.get('/api/version');
-const storeResult = await StoreService.get('version');
+// 使用服务
+const apiResult = await RequestService.get('/api/version')
+const storeResult = await StoreService.get('version')
 ```
 
-### 网络请求架构
-采用分层设计，支持业务逻辑与底层请求分离：
+#### 2. 网络请求抽象层
+三层架构设计，职责分离：
+- **BaseRequestService**: 底层HTTP请求实现
+- **BusinessRequestService**: 业务逻辑处理层
+- **ApiRequestService**: API接口封装层
 
-```
-Vue 组件 / 业务代码
-    ↓
-RequestService.get(...)  ←—— 静态入口
-    ↓
-DIContainer → 拿到注入的 BusinessService 实例
-    ↓
-BusinessService.get(...) —— 转发给 BusinessRequestService
-    ↓
-BusinessRequestService.get(...) —— 调用 BaseRequestService，拿到 ServerResponse<T> 并统一处理
-    ↓
-BaseRequestService.get(...) —— 使用底层请求库发起原生 HTTP 请求
-```
+#### 3. 存储服务抽象
+统一的数据存储接口：
+- **LocalStorageService**: 基于localStorage的本地存储
+- **IndexDBStorageService**: 基于IndexedDB的大容量存储
 
-### 存储服务抽象
-统一的存储接口，支持多种存储后端：
+#### 4. 插件系统
+可扩展的插件架构：
+- 国际化 (i18n)
+- 消息提示系统
+- 加载状态管理
+- 通知系统
+- Pinia Hooks生命周期管理
+- 用户活动追踪
 
+## 🔧 开发工具
+
+### 代码质量
+- **ESLint** - 代码质量检查
+- **Prettier** - 代码格式化
+- **TypeScript** - 类型检查
+- **Lint-staged** - 预提交检查
+
+### 构建工具
+- **Vite** - 快速构建
+- **Electron Builder** - 桌面应用打包
+- **Capacitor CLI** - 移动应用打包
+
+## 📚 使用指南
+
+### 网络请求
 ```typescript
-interface IStoreService {
-  set<T>(key: string, value: T): Promise<void>;
-  get<T>(key: string): Promise<T | null>;
-  remove(key: string): Promise<void>;
-  clear(): Promise<void>;
-}
+// 使用依赖注入的请求服务
+const requestService = DIContainer.getRequestInstance();
+
+// GET请求
+const data = await requestService.get<User[]>('/api/users');
+
+// POST请求
+const result = await requestService.post<User>('/api/users', userData);
 ```
 
-### Pinia Hooks 系统
-自定义的 Pinia 插件，支持仓库初始化管理：
-
-- `__init__` Hooks: 仓库被激活时自动调用
-- `__initState__` Hooks: 维护仓库初始化状态
-- `__waitInit__` Hooks: 等待初始化完成的异步操作
-
-## 🔧 配置说明
-
-### 环境变量
-项目支持多环境配置，主要环境变量：
-
-```bash
-# API 配置
-VITE_BASE_URL=http://localhost:3000/api
-VITE_WS_BASE_URL=ws://localhost:3000/ws
-VITE_TIMEOUT=10000
-VITE_RETRY_COUNT=3
-
-# 平台配置
-VITE_APP_PLATFORM=web|electron|mobile
-
-# 构建配置
-VITE_BASE_PATH=/
-```
-
-### Vite 配置
-- 自动导入 Vue 相关 API
-- Element Plus 组件自动导入
-- TypeScript 类型检查
-- 构建分析和可视化
-- WebAssembly 支持
-
-## 📦 可用脚本
-
-```bash
-# 开发
-pnpm dev              # Web 开发服务器
-pnpm dev/desktop      # Desktop 开发模式
-
-# 构建
-pnpm build            # Web 生产构建
-pnpm build/desktop    # Desktop 应用构建
-pnpm build/android    # Android 应用构建
-
-# 代码质量
-pnpm lint/fix         # ESLint 修复
-pnpm format           # Prettier 格式化
-pnpm style            # 代码风格检查
-pnpm fix              # 完整修复流程
-
-# 预览
-pnpm preview          # 预览生产构建
-```
-
-## 🌍 国际化
-
-项目内置国际化支持，支持动态语言切换：
-
+### 数据存储
 ```typescript
-import { setLocale, getLocale } from '@/plugins/i18n';
+// 使用依赖注入的存储服务
+const storeService = DIContainer.getStoreInstance();
 
-// 切换语言
-await setLocale('zh');
+// 存储数据
+await storeService.set('user', userData);
 
-// 获取当前语言
-const currentLocale = getLocale();
+// 读取数据
+const user = await storeService.get<User>('user');
 ```
 
-支持的语言包位于 `src/assets/locales/` 目录。
-
-## 🔌 插件系统
-
-### 消息插件
-统一的消息提示管理。
-
-### 加载插件
-全局加载状态管理。
-
-### 用户活动插件
-用户行为跟踪和分析。
-
-## 🎯 自定义 Hooks
-
-### 初始化 Hook
+### WebSocket通信
 ```typescript
-// 在 Pinia store 中使用
-export const useMyStore = defineStore('my', {
-  state: () => ({
-    data: null,
-    __initState__: false
-  }),
+// 初始化WebSocket
+const ws = initWebSocket('ws://localhost:8080');
+
+// 监听事件
+ws.on('message', (data) => {
+  console.log('收到消息:', data);
+});
+
+// 发送消息
+ws.send('chat', 'user', { message: 'Hello!' });
+```
+
+### Pinia状态管理
+```typescript
+// 使用自定义Hooks
+export const useUserStore = defineStore('user', () => {
+  const user = ref<User | null>(null);
   
-  actions: {
-    async __init__() {
-      // 初始化逻辑
-      this.data = await fetchData();
-    }
-  }
+  // 初始化Hook
+  const __init__ = async () => {
+    // 初始化逻辑
+  };
+  
+  // 等待初始化Hook
+  const __initState__ = ref(false);
+  
+  return { user, __init__, __initState__ };
 });
 ```
 
-## 🔒 安全特性
+## 🚀 部署指南
 
-### 水印指令
-内置水印功能，保护敏感内容：
+### Web部署
+```bash
+# 构建生产版本
+pnpm build
 
-```vue
-<template>
-  <div v-watermark="watermarkConfig">
-    <!-- 受保护的内容 -->
-  </div>
-</template>
+# 预览构建结果
+pnpm preview
 ```
 
-## 📱 多平台支持
+### Electron桌面应用
+```bash
+# 构建桌面应用
+pnpm build/desktop
 
-### Web 平台
-- 现代浏览器支持
-- PWA 支持
-- 响应式设计
+# 构建结果位于 .builds/windows/ 目录
+```
 
-### Desktop 平台 (Electron)
-- 跨平台桌面应用
-- 原生系统集成
-- 自动更新支持
+### 移动应用
+```bash
+# 构建Android应用
+pnpm build/android
 
-### Mobile 平台 (Capacitor)
-- iOS 和 Android 支持
-- 原生功能访问
-- 应用商店发布
+# 使用Android Studio打开 android/ 目录进行调试
+```
 
 ## 🤝 贡献指南
 
-1. Fork 项目
-2. 创建功能分支 (`git checkout -b feature/AmazingFeature`)
+1. Fork 本仓库
+2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
 3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
 4. 推送到分支 (`git push origin feature/AmazingFeature`)
 5. 打开 Pull Request
 
 ## 📄 许可证
 
-本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
+本项目基于 [MIT](LICENSE) 许可证开源。
 
-## 🆘 支持
+## 🙏 致谢
 
-如果您遇到问题或有建议，请：
-
-1. 查看 [Issues](../../issues) 页面
-2. 创建新的 Issue
-3. 联系项目维护者
+感谢所有为这个项目做出贡献的开发者们！
 
 ---
 
-**享受开发！** 🎉
+**Luxine Vue Template** - 让Vue3开发更简单、更高效！
