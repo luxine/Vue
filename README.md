@@ -1,4 +1,4 @@
-#Luxine Vue Template - 现代化Vue3项目模板
+# Luxine Vue Template - 现代化Vue3项目模板
 
 [![Vue](https://img.shields.io/badge/Vue-3.5+-green.svg)](https://vuejs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8+-blue.svg)](https://www.typescriptlang.org/)
