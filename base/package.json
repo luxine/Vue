@@ -99,6 +99,14 @@
     "win": {
       "target": "nsis",
       "icon": "icons/win/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true
     }
-  }
+  },
+  "license": "UNLICENSED",
+  "description": "Luxine Vue Template",
+  "author": "Luxine"
 }
